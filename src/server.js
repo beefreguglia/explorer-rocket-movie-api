@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 app.use(routes);
 
-app.use((error, _, response, _) => {
+app.use((error, _, response, __) => {
   if (error instanceof AppError) {
     return response.status(error.statusCode).json({
       status: "error",
@@ -24,4 +24,4 @@ app.use((error, _, response, _) => {
 });
 
 const PORT = 3333;
-app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`))
+app.listen(PORT, () => console.log(`Server is running on Port ${PORT}`));
